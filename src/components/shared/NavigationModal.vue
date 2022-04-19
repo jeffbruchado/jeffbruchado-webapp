@@ -24,7 +24,7 @@ const toggleNavigationModal = () => emit('toggleNavigationModal');
          <button 
             @click="toggleNavigationModal"
             type="button" 
-            class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 z-10" 
+            class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center hover:text-[#A80CE6] dark:hover:text-[#22E68f] z-10" 
             tabindex="0">
             <span class="sr-only">Close navigation</span>
             <svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
