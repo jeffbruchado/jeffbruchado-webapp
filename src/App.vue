@@ -2,9 +2,10 @@
 
 import { RouterView } from 'vue-router';
 import Navbar from '@/components/shared/Navbar.vue';
+import BackgroundImg from './components/shared/BackgroundImg.vue';
 import { useColorModeStore } from '@/stores/colorMode';
 import { storeToRefs } from 'pinia';
-import { onMounted, watch } from 'vue';
+import { watch } from 'vue';
 
 const colorModeStore = useColorModeStore();
 const { colorMode } = storeToRefs(colorModeStore);
@@ -17,6 +18,7 @@ watch(colorMode, val => {
 </script>
 
 <template>
+  <BackgroundImg />
   <Navbar :colorMode="colorMode" /> 
   <RouterView class="max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8"/>
 </template>
