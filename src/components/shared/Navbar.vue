@@ -75,7 +75,7 @@ const filteredRouterLinks = links.filter(link => link.routerLink);
                         />
                      </ul>
                   </nav>
-                  <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
+                  <div class="transition-colors duration-500flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
                      <colorModeBtnVue class="items-center"/>
                      <Instagram />
                      <Linkedin />
@@ -103,4 +103,5 @@ const filteredRouterLinks = links.filter(link => link.routerLink);
       :links="links"
       @toggleNavigationModal="toggleNavigationModal"
    />
+   
 </template>

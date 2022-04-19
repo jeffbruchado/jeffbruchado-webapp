@@ -4,7 +4,7 @@ import { RouterView } from 'vue-router';
 import Navbar from '@/components/shared/Navbar.vue';
 import { useColorModeStore } from '@/stores/colorMode';
 import { storeToRefs } from 'pinia';
-import { onMounted, watch } from 'vue-demi';
+import { onMounted, watch } from 'vue';
 
 const colorModeStore = useColorModeStore();
 const { colorMode } = storeToRefs(colorModeStore);
