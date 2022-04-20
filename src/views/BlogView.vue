@@ -1,5 +1,5 @@
 <script setup>
-import ModuleBlog from "../components/modules/ModuleBlog.vue";
+import ModuleBlog from "@/components/modules/blog/ModuleBlog.vue";
 </script>
 
 <template>
