@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { onBeforeMount, reactive, ref } from 'vue';
 import colorModeBtnVue from '@/components/shared/colorModeBtn.vue';
 import Instagram from '@/components/shared/logos/Instagram.vue';
 import Github from '@/components/shared/logos/Github.vue';
@@ -51,14 +51,32 @@ const links = [
 
 const toggleNavigationModal = () => {
    showNavigationModal.value = !showNavigationModal.value;
-   console.log('showNavigationModal', showNavigationModal.value);
 };
+
+const view = reactive({ topOfPage: true });
+const handleScroll = () => {
+   if(window.pageYOffset > 0){
+      if(view.topOfPage) view.topOfPage = false
+   } else {
+      if(!view.topOfPage) view.topOfPage = true
+   }
+}
+
+onBeforeMount(() => {
+   window.addEventListener('scroll', handleScroll);
+});
 
 const filteredRouterLinks = links.filter(link => link.routerLink);
 </script>
 
 <template>
-   <div class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-transparent supports-backdrop-blur:bg-white/95 dark:bg-transparent">
+   <div class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] supports-backdrop-blur:bg-white/95"
+      :class="{ 
+         'bg-transparent': view.topOfPage,
+         'dark:bg-transparent': view.topOfPage,
+         'bg-white': !view.topOfPage && colorMode === 'light', 
+         'dark:bg-slate-900/75': !view.topOfPage && colorMode === 'dark' 
+      }">
       <div class="max-w-[90rem] mx-auto">
          <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
             <div class="relative flex items-end">

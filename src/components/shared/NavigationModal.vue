@@ -39,6 +39,7 @@ const toggleNavigationModal = () => emit('toggleNavigationModal');
                :target="link?.target"
                :routerLink="link.routerLink"
                :label="link.label"
+               @toggleNavigationModal="toggleNavigationModal"
             />
          </ul>
       </div>
