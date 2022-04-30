@@ -1,9 +1,14 @@
 <script setup>
+import { ref } from 'vue';
+import Markdown from 'vue3-markdown-it'
+import post1 from '@/assets/posts/1-higher-order-functions-programacao-funcional.md'
 
+console.log(post1);
 </script>
 
 <template>
-   <div id="blog" class="px-4 xl:px-4 py-14 transition-colors dealay-500">
+   <div id="blog" class="px-4 xl:px-4 py-14 transition-colors delay-500">
+      <Markdown :source="post1" />
       <div class="mx-auto container">
          <span role="contentinfo">
             <h1 tabindex="0" class="focus:outline-none text-center text-3xl lg:text-5xl tracking-wider text-black dark:text-white transition-colors">Latest</h1>
@@ -36,7 +41,7 @@
                      <div tabindex="0" class="focus:outline-none " aria-label="card 2" >
                         <img tabindex="0" role="img" aria-label="gaming" class="focus:outline-none w-full" src="https://cdn.tuk.dev/assets/components/111220/Blg-6/blog(2).png" alt="games" />
                         <div class="py-2 px-4 w-full flex justify-between bg-[#A80CE6] dark:bg-[#22E68f]">
-                           <p tabindex="0" class="focus:outline-none  text-sm text-white dark:text-black font-semibold tracking-wide transition-colors transition-colors">Bruce Wayne</p>
+                           <p tabindex="0" class="focus:outline-none  text-sm text-white dark:text-black font-semibold tracking-wide transition-colors">Bruce Wayne</p>
                            <p tabindex="0" class="focus:outline-none text-sm text-white dark:text-black font-semibold tracking-wide transition-colors">13TH Oct, 2020</p>
                         </div>
                         <div class="bg-gray-200 dark:bg-gray-800 px-3 lg:px-6 py-4 rounded-bl-3xl rounded-br-3xl">
