@@ -1,37 +1,36 @@
 <script setup>
 import { ref } from 'vue';
-import Markdown from 'vue3-markdown-it'
-import md from 'markdown-it'
-import meta from 'markdown-it-meta'
+// import md from 'markdown-it'
+// import meta from 'markdown-it-meta'
 import post1 from '@/assets/posts/1-higher-order-functions-programacao-funcional.md'
-import hljs from 'highlight.js'
+// import hljs from 'highlight.js'
+import BlogPost from './BlogPost.vue';
 
-const markdown = new md({
-   html: true,
-   linkify: true,
-   typographer: true,
-   breaks: true,
-   highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return '<pre class="hljs"><code>' +
-               hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-               '</code></pre>';
-      } catch (__) {}
-    }
+// const markdown = new md({
+//    html: true,
+//    linkify: true,
+//    typographer: true,
+//    breaks: true,
+//    highlight: function (str, lang) {
+//     if (lang && hljs.getLanguage(lang)) {
+//       try {
+//         return '<pre class="hljs"><code>' +
+//                hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+//                '</code></pre>';
+//       } catch (__) {}
+//     }
 
-    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
-})
+//     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+//   }
+// })
 
-markdown.use(meta)
+// markdown.use(meta)
 
 </script>
 
 <template>
    <div id="blog" class="px-4 xl:px-4 py-14 transition-colors delay-500">
-      <!-- <Markdown :source="post1" :html="true" /> -->
-      <div v-html="markdown.render(post1)" />
+      <BlogPost :postSource="post1" />
       <div class="mx-auto container">
          <span role="contentinfo">
             <h1 tabindex="0" class="focus:outline-none text-center text-3xl lg:text-5xl tracking-wider text-black dark:text-white transition-colors">Latest</h1>
