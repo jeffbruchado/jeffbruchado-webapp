@@ -3,7 +3,8 @@
       {
          "id": "1",
          "title": "Higher Order Functions - Progração Funcional",
-         "content": ""
+         "content": "",
+         "path": "@/assets/posts/1-higher-order-functions-programacao-funcional.md"
       }
    ]
 }

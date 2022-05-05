@@ -23,7 +23,7 @@ watch(colorMode, val => {
   <RouterView class="max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8"/>
 </template>
 
-<style>
+<style lang="scss">
 @import '@/assets/base.css';
 
 body {

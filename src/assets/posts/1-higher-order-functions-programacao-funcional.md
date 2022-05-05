@@ -12,15 +12,13 @@ meta:
 <br/>
 
 ```js
+const triplica = function(x) {
+  return x * 3;
+}
 
-    const triplica = function(x) {
-      return x * 3;
-    }
+const waffle = triplica;
 
-    const waffle = triplica;
-
-    waffle(5); // 15
-
+waffle(5); // 15
 ```
 <br/>
 
@@ -43,26 +41,24 @@ meta:
 <br/>
 
 ```js
+const animals = [
+  { name: 'Fluffykins', species: 'coelho' },
+  { name: 'Caro', species: 'cachorro' },
+  { name: 'Hamilton', species: 'fish' },
+  { name: 'Jack', species: 'cachorro' },
+  { name: 'Aroldo', species: 'Gato' },
+]
 
-    const animals = [
-      { name: 'Fluffykins', species: 'coelho' },
-      { name: 'Caro', species: 'cachorro' },
-      { name: 'Hamilton', species: 'fish' },
-      { name: 'Jack', species: 'cachorro' },
-      { name: 'Aroldo', species: 'Gato' },
-    ]
+const isDog = (animal) => (animal.species === 'cachorro');
 
-    const isDog = (animal) => (animal.species === 'cachorro');
-
-    const cachorros = animals.filter(isDog)
-    console.log(cachorros);
-    /*
-      [
-        { name: 'Caro', species: 'cachorro' },
-        { name: 'Jack', species: 'cachorro' },
-      ]
-    /*
-
+const cachorros = animals.filter(isDog)
+console.log(cachorros);
+/*
+  [
+    { name: 'Caro', species: 'cachorro' },
+    { name: 'Jack', species: 'cachorro' },
+  ]
+/*
 ```
 <br/>
 

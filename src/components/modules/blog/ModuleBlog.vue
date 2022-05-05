@@ -1,30 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-// import md from 'markdown-it'
-// import meta from 'markdown-it-meta'
 import post1 from '@/assets/posts/1-higher-order-functions-programacao-funcional.md'
-// import hljs from 'highlight.js'
 import BlogPost from './BlogPost.vue';
-
-// const markdown = new md({
-//    html: true,
-//    linkify: true,
-//    typographer: true,
-//    breaks: true,
-//    highlight: function (str, lang) {
-//     if (lang && hljs.getLanguage(lang)) {
-//       try {
-//         return '<pre class="hljs"><code>' +
-//                hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-//                '</code></pre>';
-//       } catch (__) {}
-//     }
-
-//     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-//   }
-// })
-
-// markdown.use(meta)
 
 </script>
 
