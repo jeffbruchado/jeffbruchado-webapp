@@ -14,17 +14,8 @@ export default {
 
 <template>
   <div class="transition-colors duration-500">
-    <div
-      v-for="(post, i) in posts"
-      :key="post.id"
-      class="pt-2 pb-6 lg:pr-20 lg:max-w-[33%] lg:inline-flex flex-col justify-self-center"
-    >
+    <div v-for="(post, i) in posts" :key="post.id" class="pt-2 pb-6 flex-col justify-self-center">
       <div class="flex">
-        <div class="mr-5">
-          <span class="text-4xl font-bold font-mono leading-6 dark:text-gray-600 text-gray-200">
-            0{{ i + 1 }}</span
-          >
-        </div>
         <div>
           <div class="flex mb-1">
             <img class="h-4 w-4 rounded-full" :src="post.metadata.createdBy.avatar" alt="avatar" />
@@ -34,14 +25,24 @@ export default {
               {{ post.metadata.createdBy.name }}
             </div>
           </div>
-          <a class="cursor-pointer font-bold font-sans text-base dark:text-white text-black">
+          <a
+            class="cursor-pointer lg:text-2xl text-sm font-bold font-sans dark:text-white text-black"
+          >
             {{ post.title }}
           </a>
           <p
-            class="mt-3 font-semibold text-[10px] font-mono text-gray-700 dark:text-gray-200 self-center"
+            class="mt-1 cursor-pointer text-base font-thin font-sans dark:text-gray-100 text-black hidden lg:line-clamp-2"
+          >
+            {{ post.description }}
+          </p>
+          <p
+            class="mt-2 font-semibold text-[12px] font-mono text-gray-700 dark:text-gray-200 self-center"
           >
             {{ post.metadata.createdAt }} · {{ post.metadata.timeToRead }} read
           </p>
+        </div>
+        <div class="lg:ml-10 lg:mr-4 lg:mt-4 lg:mb-4 ml-2 border-2">
+          <img class="lg:h-32 lg:w-52 w-24 h-24" :src="post.metadata.coverImage" :alt="post.id" />
         </div>
       </div>
     </div>
