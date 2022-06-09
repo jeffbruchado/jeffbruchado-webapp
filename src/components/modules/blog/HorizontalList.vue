@@ -7,7 +7,6 @@ export default {
     },
   },
   setup(props) {
-    console.log(props.posts);
     return {};
   },
 };
