@@ -37,36 +37,6 @@ const links = [
     href: 'https://github.com/jeffbruchado/',
     target: '_blank',
   },
-  {
-    label: 'Home',
-    href: '/',
-    routerLink: true,
-  },
-  {
-    label: 'Blog',
-    href: '/blog',
-    routerLink: true,
-  },
-  {
-    label: 'About',
-    href: '/about',
-    routerLink: true,
-  },
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com/jeffbruchado/',
-    target: '_blank',
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/jefferson-bruchado/',
-    target: '_blank',
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/jeffbruchado/',
-    target: '_blank',
-  },
 ];
 </script>
 
