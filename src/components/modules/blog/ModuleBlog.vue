@@ -1,11 +1,15 @@
 <script setup>
-import { reactive } from 'vue';
+import { onMounted, reactive, ref, watch } from 'vue';
 import posts from '@/assets/posts/posts.json';
 import BlogPost from './BlogPost.vue';
 import HorizontalList from './HorizontalList.vue';
 import VerticalList from './VerticalList.vue';
 import NavigationLink from '@/components/shared/NavigationLink.vue';
 import Tag from '@/components/shared/Tag.vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
 
 const links = [
   {
@@ -109,14 +113,49 @@ const tags = reactive([
 const handleTagSelected = tag => {
   tag.selected = !tag.selected;
 };
+
+const selectedPost = ref({});
+const openPost = (post, pushRoute = true) => {
+  selectedPost.value = post;
+  pushRoute && routerPushPostWithSlug(post.slug);
+};
+
+const closePost = () => {
+  selectedPost.value = {};
+  router.push({
+    name: 'blog',
+  });
+};
+
+const routerPushPostWithSlug = slug => {
+  router.push({
+    name: 'blog',
+    params: { slug },
+  });
+};
+
+const findPostBySlug = slug => {
+  return posts.data.find(post => post.slug === slug);
+};
+
+watch(
+  () => route.params.slug,
+  slug => !slug && closePost(),
+);
+
+onMounted(() => {
+  if (route.params?.slug) {
+    return openPost(findPostBySlug(route.params.slug), false);
+  }
+});
 </script>
 
 <template>
   <div id="blog" class="px-4 xl py-14 transition-colors delay-500">
-    <div class="divide-y dark:divide-[#22e68e28] divide-[#a80ce625]">
-      <HorizontalList class="pb-4" :posts="posts.data" />
+    <div v-if="!selectedPost.content" class="divide-y dark:divide-[#22e68e28] divide-[#a80ce625]">
+      <HorizontalList class="pb-4" :posts="posts.data" @open-post="openPost" />
       <div class="lg:flex">
-        <VerticalList class="pt-8 lg:w-2/3 lg:mr-16" :posts="posts.data" />
+        <VerticalList class="pt-8 lg:w-2/3 lg:mr-16" :posts="posts.data" @open-post="openPost" />
         <section class="hidden lg:block">
           <div class="lg:sticky top-28 divide-y dark:divide-[#22e68e28] divide-[#a80ce625]">
             <div
@@ -151,6 +190,6 @@ const handleTagSelected = tag => {
         </section>
       </div>
     </div>
-    <!-- <BlogPost :postSource="posts.data[0].content" /> -->
+    <BlogPost v-else :postSource="selectedPost.content" class="transition-all" />
   </div>
 </template>

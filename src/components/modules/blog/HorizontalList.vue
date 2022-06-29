@@ -6,8 +6,13 @@ export default {
       default: () => [],
     },
   },
-  setup(props) {
-    return {};
+  emits: ['openPost'],
+  setup(props, { emit }) {
+    const openPost = post => emit('openPost', post);
+
+    return {
+      openPost,
+    };
   },
 };
 </script>
@@ -34,7 +39,10 @@ export default {
               {{ post.metadata.createdBy.name }}
             </div>
           </div>
-          <a class="cursor-pointer font-bold font-sans text-base dark:text-white text-black">
+          <a
+            class="cursor-pointer font-bold font-sans text-base dark:text-white text-black"
+            @click="openPost(post)"
+          >
             {{ post.title }}
           </a>
           <p

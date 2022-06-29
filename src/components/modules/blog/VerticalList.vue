@@ -6,8 +6,13 @@ export default {
       default: () => [],
     },
   },
-  setup(props) {
-    return {};
+  emits: ['openPost'],
+  setup(props, { emit }) {
+    const openPost = post => emit('openPost', post);
+
+    return {
+      openPost,
+    };
   },
 };
 </script>
@@ -27,11 +32,13 @@ export default {
           </div>
           <a
             class="cursor-pointer lg:text-2xl text-sm font-bold font-sans dark:text-white text-black"
+            @click="openPost(post)"
           >
             {{ post.title }}
           </a>
           <p
             class="mt-1 cursor-pointer text-base font-thin font-sans dark:text-gray-100 text-black hidden lg:line-clamp-2"
+            @click="openPost(post)"
           >
             {{ post.description }}
           </p>
